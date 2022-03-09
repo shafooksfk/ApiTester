@@ -1,0 +1,7 @@
+.App {
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  --blue:#0275d8;
+  --red:#d9534f;
+}
