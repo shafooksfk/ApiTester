@@ -21,7 +21,7 @@ export default function TestingPage() {
   });
 
   function handleChange(e) {
-    if (e.target.name == "data") {
+    if (e.target.name === "data") {
       setRequest({ ...request, [e.target.name]: JSON.parse(e.target.value) });
     } else {
       setRequest({ ...request, [e.target.name]: e.target.value });
@@ -29,7 +29,7 @@ export default function TestingPage() {
   }
 
   function handleSubmit(e) {
-    if (request.method == "GET") {
+    if (request.method === "GET") {
       axios
         .get(request.url)
         .then((data) => {
@@ -43,7 +43,7 @@ export default function TestingPage() {
             status: error.response.status,
           });
         });
-    } else if (request.method == "POST") {
+    } else if (request.method === "POST") {
       axios
         .post(request.url, request.data)
         .then((data) => {
@@ -56,7 +56,7 @@ export default function TestingPage() {
             status: error.response.status,
           });
         });
-    } else if (request.method == "PUT") {
+    } else if (request.method === "PUT") {
       axios
         .put(request.url, request.data)
         .then((data) => {
@@ -85,7 +85,7 @@ export default function TestingPage() {
     }
   }
   useEffect(() => {
-    if (request.method == "GET") {
+    if (request.method === "GET") {
       setActive({
         ...active,
         POST: false,
@@ -93,7 +93,7 @@ export default function TestingPage() {
         PUT: false,
         DELETE: false,
       });
-    } else if (request.method == "PUT") {
+    } else if (request.method === "PUT") {
       setActive({
         ...active,
         POST: false,
@@ -101,7 +101,7 @@ export default function TestingPage() {
         PUT: true,
         DELETE: false,
       });
-    } else if (request.method == "DELETE") {
+    } else if (request.method === "DELETE") {
       setActive({
         ...active,
         POST: false,
@@ -118,6 +118,7 @@ export default function TestingPage() {
         DELETE: false,
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [request.method]);
 
   return (
